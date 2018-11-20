@@ -1,12 +1,12 @@
 module.exports = {
     root: true,
-    parser: 'babel-eslint',
     parserOptions: {
+        parser: 'babel-eslint',
         sourceType: 'module'
     },
     // required to lint *.vue files
-    extends: 'vue',
-    plugins: ['html'],
+    extends: ['plugin: vue / recommended'],
+    plugins: [],
     env: {
         browser: true,
         node: true,
@@ -142,7 +142,14 @@ module.exports = {
         'guard-for-in': 0, //for in循环要用if语句过滤
         'handle-callback-err': 0, //nodejs 处理错误
         'id-length': 0, //变量名长度
-        indent: [0, 2], //缩进风格
+        indent: 'off',
+        'vue/script-indent': [
+            'error',
+            2,
+            {
+                baseIndent: 1
+            }
+        ],
         'init-declarations': 0, //声明时必须赋初值
         'key-spacing': [0, { beforeColon: false, afterColon: true }], //对象字面量中冒号的前后空格
         'lines-around-comment': 0, //行前/行后备注

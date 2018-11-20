@@ -12,6 +12,10 @@ import 'babel-polyfill';
 Vue.use(ElementUI, { size: 'small' });
 Vue.prototype.$axios = axios;
 
+//WebSocket封装方法
+import * as socketApi from './api/socket';
+Vue.prototype.socketApi = socketApi;
+
 new Vue({
     router,
     store,

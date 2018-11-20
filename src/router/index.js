@@ -20,6 +20,11 @@ export default new Router({
                     meta: { title: '聊天室' }
                 },
                 {
+                    path: '/chat2',
+                    component: resolve => require(['../components/page/TestsocketApi.vue'], resolve),
+                    meta: { title: '聊天室2' }
+                },
+                {
                     path: '/404',
                     component: resolve => require(['../components/page/404.vue'], resolve),
                     meta: { title: '404' }

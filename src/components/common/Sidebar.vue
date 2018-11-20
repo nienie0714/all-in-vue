@@ -40,7 +40,12 @@
           {
             icon: 'el-icon-lx-home',
             index: 'chat',
-            title: '聊天室-websocket'
+            title: '聊天室-直接websocket'
+          },
+          {
+            icon: 'el-icon-lx-home',
+            index: 'chat2',
+            title: '聊天室2-封装websocket'
           },
           {
             icon: 'el-icon-lx-cascades',

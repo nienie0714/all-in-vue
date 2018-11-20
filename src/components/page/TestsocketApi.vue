@@ -1,10 +1,10 @@
 <template>
   <div class="pt pb">
     <!-- <mt-header title="聊天室"></mt-header> -->
-    <div>聊天室</div>
+    <div>聊天室2</div>
     <div class="content" ref="content">
       <ul class="chat-wrapper">
-        <template v-for="(item, index) in messages">
+        <template v-for="(item, index) in messages">{{messages}}
           <li v-if="item.type" :class="{message: item.type, myself:item.myself}" :key="index">
             <div class="photo"></div>
             <div class="detail">
@@ -25,8 +25,7 @@
 
 <script>
   import { getSen, setSen } from '../../utils'
-
-  var ws = new WebSocket('ws://172.16.6.174:9999')
+  import Bus from '@/components/common/bus';
 
   export default {
     data() {
@@ -38,40 +37,25 @@
       }
     },
     created() {
-      ws.onopen = evt => {
-        console.log('Connection open ...', this.id)
-        this.send(this.id, 0)
-      }
+      this.socketApi.sendSock(this.sendMessage, this.send);
+    },
+    methods: {
+      send(id, type, text) {
+        Bus.$on('onMessage', msg => {
+          this.messages.push({ ...msg, myself: msg.id === this.id })
+          if(!this.id && msg.type === 0) {
+            this.id = msg.id
+            setSen('id', msg.id)
+          }
+        });
+        console.log(this.messages);
 
-      ws.onmessage = evt => {
-        console.log('on message ...', evt.data)
-        console.log('--------', evt)
-        let data = JSON.parse(evt.data)
-        this.messages.push({ ...data, myself: data.id === this.id })
         var e = this.$refs.content
         setTimeout(() => {
           e.scrollTop = e.scrollHeight + 10000
         }, 100)
 
-        if(!this.id && data.type === 0) {
-          this.id = data.id
-          setSen('id', data.id)
-        }
-      }
-
-      ws.onclose = evt => {
-        console.log('Connection closed.', evt)
-      }
-
-      ws.onerror = evt => {
-        console.log('发生了错误', evt)
-      }
-    },
-    methods: {
-      // 发送数据 type:0 验证id  type:1发送消息
-      send(id, type, text) {
-        ws.send(JSON.stringify({ id, type, text }))
-        this.sendMessage = ''
+        this.sendMessage = '';
       }
     }
   }
