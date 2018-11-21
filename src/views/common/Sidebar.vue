@@ -43,19 +43,24 @@
             title: '聊天室-直接websocket'
           },
           {
-            icon: 'el-icon-lx-home',
+            icon: 'el-icon-lx-emoji',
             index: 'chat2',
             title: '聊天室2-封装websocket'
           },
           {
             icon: 'el-icon-lx-cascades',
-            index: 'table',
-            title: '基础表格'
+            index: 'divPrinter',
+            title: 'Div绘图'
+          },
+          {
+            icon: 'el-icon-lx-rank',
+            index: 'canvasPrinter',
+            title: 'Canvas绘图'
           },
           {
             icon: 'el-icon-lx-copy',
-            index: 'tabs',
-            title: 'tab选项卡'
+            index: 'videos',
+            title: 'Videos直播'
           }
         ]
       }

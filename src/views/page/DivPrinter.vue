@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="div-printer">
   </div>
 </template>
 
@@ -16,10 +16,6 @@
     computed: {
     },
     created() {
-    },
-    deactivated() {
-      window.removeEventListener('resize', this.renderChart)
-      bus.$off('collapse', this.handleBus)
     },
     methods: {
     }

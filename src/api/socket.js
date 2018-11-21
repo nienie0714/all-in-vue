@@ -1,4 +1,4 @@
-import Bus from '@/components/common/bus';
+import Bus from '@/views/common/bus';
 var websock = null;
 var global_callback = null;
 var serverPort = '9999'; //webSocket连接端口

@@ -25,7 +25,7 @@
 
 <script>
   import { getSen, setSen } from '../../utils'
-  import Bus from '@/components/common/bus';
+  import Bus from '@/views/common/bus';
 
   export default {
     data() {
@@ -40,15 +40,19 @@
       this.socketApi.sendSock(this.sendMessage, this.send);
     },
     methods: {
-      send(id, type, text) {
-        Bus.$on('onMessage', msg => {
-          this.messages.push({ ...msg, myself: msg.id === this.id })
-          if(!this.id && msg.type === 0) {
-            this.id = msg.id
-            setSen('id', msg.id)
-          }
-        });
-        console.log(this.messages);
+      send(msg) {
+        this.messages.push({ ...msg, myself: msg.id === this.id })
+        if(!this.id && msg.type === 0) {
+          this.id = msg.id
+          setSen('id', msg.id)
+        }
+        // Bus.$on('onMessage', msg => {
+        //   this.messages.push({ ...msg, myself: msg.id === this.id })
+        //   if(!this.id && msg.type === 0) {
+        //     this.id = msg.id
+        //     setSen('id', msg.id)
+        //   }
+        // });
 
         var e = this.$refs.content
         setTimeout(() => {
