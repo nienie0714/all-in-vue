@@ -1,0 +1,45 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $color-bg;
+  color: $color-text;
+  font-size: 12px;
+  min-width: 1000px;
+  /* stylelint-disable */
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, 'Helvetica Neue', Helvetica;
+
+  &.ispreview {
+    overflow: hidden;
+
+    .app {
+      filter: blur(20px);
+    }
+  }
+
+  .ui-selectable-helper{
+    border:1px dashed #D1D1D1;
+    background-color: rgba(236, 218, 218, 0.1)
+  }
+}
+.max-Zindex{
+  z-index: 2009 !important
+}
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+.app {
+  position: relative;
+}
