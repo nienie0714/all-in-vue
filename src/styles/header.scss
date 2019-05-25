@@ -1,0 +1,418 @@
+.app-head {
+  width: 100%;
+  background-color: #5497fe;
+  color: #fff;
+  padding: 0 20px;
+  user-select: none;
+  font-size: 14px;
+  z-index: 2001;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 1px 0 4px rgba(#e3e8ee, 1);
+  min-width: 1100px;
+  .app-logo {
+    display: block;
+    padding: 10px 0;
+    font-size: 0;
+    white-space: nowrap;
+    img {
+      height: 35px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .app-logo__label {
+      margin-left: 10px;
+      font-size: 16px;
+      color: #fff;
+      display: inline-block;
+      position: relative;
+      top: 12px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .app-nav {
+    margin: 0;
+    margin-left: 30px;
+    padding: 0;
+    list-style: none;
+    display: inline-flex;
+
+    .app-nav__item {
+      display: flex;
+      position: relative;
+      white-space: nowrap;
+
+      a {
+        line-height: 35px;
+        @media screen and (max-width:1600px){ //大于1190且小于1400
+          padding: 10px 25px !important;
+        }
+        @media screen and (max-width:1350px){ //大于1100且小于1190
+          padding: 10px 15px !important;
+        }
+        @media screen and (max-width:1250px){ //小于1100
+          padding: 10px 10px !important;
+        }
+        @media screen and (max-width:1190px){ //小于1100
+          padding: 10px 4px !important;
+        }
+        padding: 10px 50px;
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        text-align: center
+      }
+
+      &:hover,
+      &.link-active {
+        background-color: #3f86de;
+        // &::before {
+        //   content: '';
+        //   position: absolute;
+        //   height: 3px;
+        //   top: 0;
+        //   left: 0;
+        //   right: 0;
+        //   z-index: 200;
+        //   background-color: #03d693;
+        // }
+      }
+    }
+
+    .app-nav__item.guide.introjs-relativePosition {
+      background-color: #3f86de;
+    }
+  }
+
+  .user-nav {
+    display: flex;
+
+    .user-nav__item {
+      display: flex;
+      cursor: pointer;
+
+      &:hover .user-nav__toggle {
+        transition: all .2s;
+        background-color: #3f86de;
+      }
+    }
+
+    .user-nav__item.guide.introjs-relativePosition {
+      background-color: #3f86de;
+    }
+
+    .user-nav__btn {
+      height: 31px;
+      line-height: 25px;
+      margin: 12px 20px;
+      padding: 2px 20px;
+      border: 1px solid #19e0c6;
+      border-radius: 4px;
+      color: #00ffae;
+
+      a {
+        color: inherit;
+      }
+
+      &:hover,
+      &:active {
+        transition: all .2s;
+        background-color: #19e0c6;
+        color: #fff;
+      }
+    }
+
+    @media screen and (max-width: 1145px) { //小于1200时
+      .user-nav__btn {
+        margin: 12px 15px;
+      }
+    }
+
+    @media screen and (max-width: 1065px) { //小于1200时
+      .user-nav__btn {
+        margin: 12px 10px;
+      }
+    }
+
+    .user-nav__toggle {
+      display: flex;
+      height: 55px;
+      padding: 10px 15px;
+      align-items: center;
+
+      [class*="nova-icon-"] {
+        font-size: 16px;
+      }
+    }
+
+    .user-dropdown {
+      position: relative;
+
+      a {
+        color: #fff;
+        position: relative;
+      }
+
+      .has-sending {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #00ffae;
+        border-radius: 50%;
+        top: 28px;
+        right: 14px;
+      }
+
+      .user-dropdown__toggle {
+        white-space: nowrap;
+
+        .toggle-item {
+          margin-left: 10px;
+        }
+      }
+
+      .toggle-arrow {
+        position: relative;
+        width: 6px;
+        height: 6px;
+        border: 1px solid;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        transform: rotate(-45deg);
+        top: -1px;
+        transition: all .2s;
+      }
+
+      .user-dropdown__menu {
+        position: absolute;
+        top: 100%;
+        background-color: #5497fe;
+        margin: 0;
+        padding: 10px 0;
+        list-style: none;
+        display: none;
+      }
+
+      .user-dropdown__item {
+        cursor: pointer;
+
+        a {
+          display: block;
+          padding: 5px 25px;
+          line-height: 26px;
+          white-space: nowrap;
+
+          &:hover {
+            color: #06f7c0;
+          }
+        }
+
+        &.dropdown-divided {
+          margin: 9px 25px;
+          height: 1px;
+          background-color: #659ee5;
+        }
+      }
+
+      .user-nick {
+        min-width: 110px;
+      }
+
+      &:hover {
+        .user-dropdown__menu {
+          display: block;
+        }
+
+        .toggle-arrow {
+          transform: rotate(135deg);
+          top: 3px;
+        }
+      }
+    }
+  }
+
+  .release-player-count {
+    position: absolute;
+    box-sizing: border-box;
+    font-size: 12px;
+    background-color: #ff6c60;
+    border-radius: 200px;
+    white-space: nowrap;
+    height: 16px;
+    line-height: 1;
+    text-align: center;
+    left: 26px;
+    top: 25px;
+    padding: 1px 5px;
+    border: 1px solid #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(.875);
+
+    &.radius {
+      width: 16px;
+      padding: 0;
+      border-radius: 50%;
+    }
+  }
+}
+
+.terminal-nav {
+  display: flex;
+
+  .terminal-nav__item {
+    display: flex;
+    cursor: pointer;
+    // &:hover .terminal-nav__toggle {
+    //   transition: all .2s;
+    //   background-color: #3f86de;
+    // }
+  }
+
+  .terminal-nav__item.guide.introjs-relativePosition {
+    background-color: #3f86de;
+  }
+
+  .terminal-nav__btn {
+    height: 31px;
+    line-height: 25px;
+    margin: 12px 20px;
+    padding: 2px 20px;
+    border: 1px solid #19e0c6;
+    border-radius: 4px;
+    color: #00ffae;
+
+    a {
+      color: inherit;
+    }
+
+    &:hover,
+    &:active {
+      transition: all .2s;
+      background-color: #19e0c6;
+      color: #fff;
+    }
+  }
+
+  .terminal-nav__toggle {
+    display: flex;
+    height: 55px;
+    padding: 10px 15px;
+    align-items: center;
+    
+    [class*="nova-icon-"] {
+      font-size: 16px;
+    }
+  }
+
+  .terminal-dropdown {
+    position: relative;
+
+    a {
+      color: #fff;
+    }
+
+    .terminal-dropdown__toggle {
+      .toggle-item {
+        margin-left: 10px;
+      }
+    }
+
+    .toggle-arrow {
+      position: relative;
+      width: 6px;
+      height: 6px;
+      border: 1px solid;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      transform: rotate(-45deg);
+      top: -1px;
+      transition: all .2s;
+    }
+
+    .terminal-dropdown__menu {
+      position: absolute;
+      top: 100%;
+      background-color: #5497fe;
+      margin: 0;
+      min-width: 100%;
+      padding: 10px 0;
+      list-style: none;
+      display: none;
+    }
+
+    .terminal-dropdown__item {
+      cursor: pointer;
+      text-align: center;
+      // width: 190px;
+      padding: 5px 25px;
+      min-width: 100%;
+      display: flex;
+      // justify-content: center;
+      // align-items: center;
+      &:hover {
+        a{
+          color: #06f7c0;
+        }
+        color: #06f7c0;
+      }
+      a {
+        font-size: 14px;
+        padding: 0;
+        line-height: 26px;
+        white-space: nowrap;
+        text-align: center;
+        span {
+          display: block;
+        }
+        i {
+          font-size: 80px;
+        }
+      }
+
+      &.dropdown-divided {
+        margin: 9px 25px;
+        height: 1px;
+        background-color: #659ee5;
+      }
+    }
+
+    .terminal-nick {
+      // min-width: 110px;
+    }
+
+    &:hover {
+      .terminal-dropdown__menu {
+        display: block;
+      }
+
+      .toggle-arrow {
+        transform: rotate(135deg);
+        top: 3px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .app-head {
+    .app-nav {
+      .app-nav__item {
+        a {
+          padding: 0px;
+        }
+      }
+
+      .app-nav__item.guide.introjs-relativePosition {
+        background-color: #3f86de;
+      }
+    }
+  }
+}

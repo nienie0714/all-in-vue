@@ -1,0 +1,19 @@
+.app-main {
+  margin: 41px 20px 0;
+
+  .app-viewport {
+    position: relative;
+  }
+
+  .app-panel {
+    margin: 0;
+    position: relative;
+    padding: 30px;
+    background-color: $color-bg;
+    box-shadow: 0 2px 3px rgba(#000, .05);
+
+    &.fluid {
+      min-height: calc(100vh - 130px);
+    }
+  }
+}
